@@ -1,0 +1,13 @@
+<video id="localVideo" autoplay muted style="width:40%;"></video>
+<video id="remoteVideo" autoplay style="width:40%;"></video>
+
+<br />
+
+<input type="button" id="start" onclick="webrtc.start(true)" value="Start Video"></input>
+
+
+<script>
+ window.onload = function(){
+     window.webrtc.init();
+ }
+</script>

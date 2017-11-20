@@ -1,0 +1,32 @@
+module View exposing (..)
+
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Model exposing (..)
+import Html.Events exposing (onClick)
+import Webrtc exposing (check, processedOutput)
+
+
+view : Model -> Html Msg
+view model =
+    div []
+        [ video [ attribute "autoplay" "", id "localVideo", attribute "muted" "", attribute "style" "width:40%;" ]
+            []
+        , video [ attribute "autoplay" "", id "remoteVideo", attribute "style" "width:40%;" ]
+            []
+
+        , div []
+            [ div [] [ text model.text ]
+            ]
+        , div []
+            [ div [] [ button [ type_ "button", value "Start", onClick StartWebrtc ] [ text "Start WebRTC" ] ] ]
+        ]
+
+
+styles : List ( String, String )
+styles =
+    [ ( "text-align", "center" )
+    , ( "color", "#0192C8" )
+    , ( "margin-top", "2em" )
+    , ( "font-family", "helvetica" )
+    ]
